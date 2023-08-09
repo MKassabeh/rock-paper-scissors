@@ -8,5 +8,4 @@ function getComputerChoice(){
 
 };
 
-
 getComputerChoice();
