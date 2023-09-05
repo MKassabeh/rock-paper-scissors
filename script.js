@@ -17,7 +17,7 @@ function getComputerChoice(){
 let computerScore = 0;
 let playerScore = 0;
 
-
+let computerSelection = getComputerChoice();
 
 function startGame(playerSelection, computerSelection){
 
@@ -65,22 +65,24 @@ function startGame(playerSelection, computerSelection){
 }
 
 
-do{
-    const playerSelect = prompt('Choice your play')
-    const computerSelection = getComputerChoice();
-
-    const playerSelection = playerSelect.toLowerCase();
-    
-    startGame(playerSelection, computerSelection);
-    console.log(playerScore,computerScore)
+const button = document.querySelectorAll(".btn")
 
 
-}
 
-while(playerScore<=4 && computerScore<=4)
+const btnArray = Array.from(button)
 
-if(playerScore==5){
-    console.log("You win the BO5")
-}else{
-    console.log("You lose the BO5")
-}
+
+
+btnArray.forEach(e => {
+
+    const value = e.value;
+    e.addEventListener("click",(e)=>{
+
+        startGame(value, computerSelection)
+        console.log('me'+value)
+        console.log("comp"+computerSelection)
+        
+    })
+});
+
+console.log(btnArray)
